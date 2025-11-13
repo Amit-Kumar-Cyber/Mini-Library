@@ -1,100 +1,78 @@
-#📚 Mini Library Management System
-C++ · Object-Oriented Programming · File Handling · Console Application
+# 📚 Mini Library Management System
 
+**C++ · Object-Oriented Programming · File Handling · Console Application**
 
+---
 
+## 📖 Project Overview
 
+The **Mini Library Management System** is a console-based application developed using C++ (OOP) and file handling. It demonstrates clean modular programming, class-based design, persistent storage using text files, and reliable CLI interaction.
 
+This system helps manage **Books**, **Members**, and **Issue/Return Records**, along with search functions and summary reporting.
 
+### It is ideal for:
 
+🔹 College mini-projects  
+🔹 BCA / B.Tech OOP submissions  
+🔹 Learning structured C++ development
 
-📖 Project Overview
+---
 
-The Mini Library Management System is a lightweight, console-based application built using C++ (OOP principles) and text-based file storage.
-It provides essential library operations such as:
+## 🚀 Features
 
-Adding and managing Books
+### 📘 Book Module
 
-Registering Members
+- Add new books
+- Track total & available copies
+- Search by title or author
+- Auto-generated Book IDs
 
-Issuing and Returning books
+### 👤 Member Module
 
-Searching for books
+- Register new members
+- Auto-generated Member IDs
+- View a member's complete book-borrowing history
 
-Generating reports
+### 📦 Issue & Return Flow
 
-Data persistence using .txt files
+- Issue books with validation:
+  - Book exists
+  - Member exists
+  - Copies available
+  - Prevent double issue to same member
+- Return books & auto-update availability
+- Store issue & return dates (YYYY-MM-DD format)
 
-Fully modular architecture with unit tests
+### 📊 Reports
 
-This project is ideal for college mini-projects, BCA/B.Tech submissions, OOP practice, and learning structured C++ application development.
+- List all books
+- List all issued books
+- Member transaction history
+- Summary report:
+  - Total copies
+  - Issued books count
+  - Most frequently issued book
 
-🧩 Features
-📘 Book Management
+### 💾 File-Based Storage
 
-Add new books
+Data is stored in simple `.txt` files using the pipe (`|`) separator.
 
-Track total & available copies
+| File Name | Description |
+|-----------|-------------|
+| `books.txt` | Stores book data |
+| `members.txt` | Stores member data |
+| `issues.txt` | Stores issue-return transactions |
 
-Search by title or author
-
-Auto-generated Book IDs
-
-👤 Member Management
-
-Add new members
-
-Auto-generated Member IDs
-
-View individual borrowing history
-
-📦 Issue & Return Module
-
-Issue books with validation:
-
-Book exists
-
-Member exists
-
-Copies available
-
-Prevent duplicate outstanding issue
-
-Return books and auto-update availability
-
-Store issue/return dates (YYYY-MM-DD)
-
-📊 Reports
-
-List all books
-
-List issued books
-
-Member transaction history
-
-Summary report:
-
-Total copies
-
-Currently issued
-
-Most issued book
-
-💾 Persistent Storage
-
-The system uses three text files:
-
-File	Data Stored
-books.txt	Book records
-members.txt	Member records
-issues.txt	Issue/return history
-
-Format: pipe-separated (|) fields
-Example:
-
+**Example format:**
+```
 1|Clean Code|Robert C. Martin|3|2
+```
 
-🧱 Project Structure
+---
+
+## 🧱 Project Structure
+
+```
 📁 LibrarySystem/
 │
 ├── src/
@@ -124,92 +102,202 @@ Example:
 ├── run_tests.sh
 ├── package.sh
 └── README.md
+```
 
-🛠️ Technologies Used
+---
 
-C++17
+## 🛠️ Technologies Used
 
-STL: vector, string, fstream, chrono
+- **C++17 Standard**
+- **STL**: vectors, strings, file streams
+- **fstream** for persistent storage
+- **chrono** for date handling
+- Clean OOP design with header/source separation
 
-Modular OOP design
+---
 
-File handling (fstream)
+## ⚙️ Installation & Setup
 
-Custom input handling utilities
+### 🔧 Clone the Repository
 
-⚙️ Installation & Setup
-🔧 1. Clone the Repository
+```bash
 git clone https://github.com/your-username/library-system.git
 cd library-system
+```
 
-🏗️ 2. Build the Project
+### 🏗️ Build the Project
+
+```bash
 g++ -std=c++17 -o mini_library main.cpp Book.cpp Member.cpp Issue.cpp Library.cpp utils.cpp
+```
 
-▶️ 3. Run the Application
+### ▶️ Run
+
+```bash
 ./mini_library
+```
 
-🧪 Running Unit Tests
+**On Windows:**
+```bash
+.\mini_library.exe
+```
 
-Unit tests exist for:
+---
 
-🧩 Models
+## 🧪 Running Unit Tests
 
-🧰 Utilities
+Tests provided for:
 
-📦 Library core logic
+- 📘 Models
+- 🧰 Utilities
+- 🏛️ Library core logic
 
-Build Tests
+### Build Tests
+
+```bash
 g++ -std=c++17 -o test_models test_models.cpp Book.cpp Member.cpp Issue.cpp utils.cpp
 g++ -std=c++17 -o test_utils test_utils.cpp utils.cpp
 g++ -std=c++17 -o test_library test_library.cpp Book.cpp Member.cpp Issue.cpp Library.cpp utils.cpp
+```
 
-Run Tests
+### Run Tests
+
+```bash
 ./test_models
 ./test_utils
 ./test_library
+```
 
-📸 Screenshots (Optional – add later)
+---
 
-(You may replace these with real screenshots)
+## 📸 Screenshots (Optional)
 
-📜 Main Menu
+You can add screenshots here later. For now, placeholders:
 
-📘 Add Book
+- **Main Menu**
+- **Add Book**
+- **Issuing a Book**
 
-📦 Issue Book
+---
 
-🔐 Limitations
+## 🔐 Known Limitations
 
-No escaping for | character in user input
+- `|` cannot appear in title/inputs (no escaping implemented)
+- Not suitable for multi-user or concurrent access
+- Console-only UI
+- Full database not implemented (text files only)
 
-Not meant for multi-user or concurrent use
+---
 
-CLI-based only (no GUI)
+## 🌱 Future Enhancements
 
-Not optimized for large datasets
+- JSON or SQLite storage
+- Admin login & user roles
+- Due dates and fine system
+- Qt GUI or full web frontend
+- File-locking or atomic writes for safety
 
-🚀 Future Enhancements
+---
 
-Switch to JSON or SQLite database
+## 👨‍💻 Contributors
 
-Add Due Dates & Fine Calculation
+| Role | Person |
+|------|--------|
+| Person A | Data Models & File I/O |
+| Person B | Utilities & Input Validation |
+| Person C | Core Logic & Rule Engine |
+| Person D | UI, Integration, Packaging, Documentation |
 
-Add Admin Login & Roles
+---
 
-Create a GUI using Qt or a Web App using Python Flask/FastAPI
+## 📝 License
 
-Add unit tests for console I/O
+This project is under the **MIT License**.
 
-👨‍💻 Contributors
-Role	Member
-Person A	Data Models & I/O
-Person B	Utilities & Input Validation
-Person C	Core Logic & Library Manager
-Person D	UI, Integration, Packaging & Documentation
-📝 License
+You may use, modify, and distribute it freely.
 
-This project is licensed under the MIT License — feel free to use, modify, and distribute.
+---
 
-⭐ Show Your Support
+## ⭐ Support the Project
 
-If you like this project, consider giving it a star ⭐ on GitHub — it motivates us to build more!
+If this project helped you, please give it a **Star ⭐** on GitHub!
+
+It means a lot and encourages further work.
+
+---
+
+## 📚 Usage Guide
+
+### Adding a Book
+
+1. Select option `1` from the main menu
+2. Enter book title (non-empty)
+3. Enter author name
+4. Enter number of copies (≥ 1)
+5. Confirm the details
+6. Book is saved with auto-generated ID
+
+### Issuing a Book
+
+1. Select option `8` from the main menu
+2. Enter Book ID
+3. Enter Member ID
+4. Confirm the issue
+5. System validates and creates issue record
+
+### Returning a Book
+
+1. Select option `9` from the main menu
+2. Choose return method:
+   - By Issue ID
+   - By Book ID + Member ID
+3. Confirm the return
+4. System updates availability automatically
+
+### Searching Books
+
+- **By Title**: Option `4` - Case-insensitive substring search
+- **By Author**: Option `5` - Case-insensitive substring search
+- **By ID**: Option `6` - Direct ID lookup
+
+### Viewing Reports
+
+- **All Books**: Option `3` - Complete book catalog
+- **Issued Books**: Option `10` - Currently issued books with member details
+- **Member History**: Option `11` - Complete transaction history for a member
+- **Summary**: Option `12` - Library statistics and most issued book
+
+---
+
+## 🐛 Troubleshooting
+
+### Compilation Errors
+
+If you encounter compilation errors:
+
+1. Ensure you're using a C++17 compatible compiler
+2. Check that all source files are in the same directory
+3. Verify all header files are present
+
+### File Not Found Errors
+
+- Ensure `books.txt`, `members.txt`, and `issues.txt` exist (they will be created automatically on first run)
+- Check file permissions in the project directory
+
+### Date Function Errors
+
+The date function is cross-platform compatible:
+- Windows (MSVC): Uses `localtime_s`
+- Windows (MinGW): Uses `std::localtime`
+- Linux/macOS: Uses `localtime_r`
+
+---
+
+## 📞 Contact & Support
+
+For issues, questions, or contributions, please open an issue on GitHub or contact the project maintainers.
+
+---
+
+**Happy Coding! 🎉**
+
